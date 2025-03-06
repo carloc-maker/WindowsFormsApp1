@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\carloc\\source\\repos\\windowsformsapp1\\windowsformsapp1\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\carloc\\source\\repos\\windowsformsapp1\\windowsformsapp1\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\carloc\\source\\repos\\windowsformsapp1\\windowsformsapp1\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A9B575-A1BD-44FA-BFBE-55413FBFABFE}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,62 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Main.cs",
-              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Main.cs",
-              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\Main.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T14:58:14.235Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Network.cs",
-              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Network.cs",
-              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\Network.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAuwF4AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T16:52:01.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Network.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Network.cs",
-              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs [Progettazione]",
-              "RelativeToolTip": "WindowsFormsApp1\\Network.cs [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T16:49:48.478Z",
-              "EditorCaption": " [Progettazione]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Login.cs",
-              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\Login.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T14:56:59.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Login.cs [Progettazione]",
               "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Login.cs",
@@ -101,6 +50,45 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Login.cs",
+              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\Login.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAuwFAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T14:56:59.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Network.cs",
+              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Network.cs",
+              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\Network.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAQwGwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T16:52:01.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Main.cs",
+              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\Main.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwJEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T14:58:14.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Main.cs [Progettazione]",
               "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main.cs",
@@ -109,6 +97,18 @@
               "RelativeToolTip": "WindowsFormsApp1\\Main.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-21T15:14:27.391Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Network.cs [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Network.cs",
+              "ToolTip": "C:\\Users\\carloc\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Network.cs [Progettazione]",
+              "RelativeToolTip": "WindowsFormsApp1\\Network.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T16:49:48.478Z",
               "EditorCaption": " [Progettazione]"
             }
           ]

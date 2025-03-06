@@ -8,12 +8,12 @@ namespace WindowsFormsApp1
 {
     public partial class Login : Form
     {
+        
         public string Ip { get; private set; }
         public string Username { get; private set; }
         public string Password { get; private set; }
 
-        public string token;
-
+        
         public static class SessionData
         {
             public static string Token { get; set; }
@@ -25,91 +25,97 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
+        
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             Ip = textBox3.Text.Trim();
             SessionData.Ip = Ip;
         }
 
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            Username = textBox1.Text.Trim(); 
+            Username = textBox1.Text.Trim();
         }
 
+        
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             Password = textBox2.Text.Trim();
         }
 
+        
         private async void button3_Click(object sender, EventArgs e)
         {
+            
+            if (string.IsNullOrEmpty(Ip))
+            {
+                MessageBox.Show("L'IP non può essere vuoto.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+            {
+                MessageBox.Show("Username e Password non possono essere vuoti.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             string apiUrl = $"http://{Ip}/api/v1/security/login/{Username}/{Password}";
 
-            //MessageBox.Show($"Chiamata: {apiUrl}"); //Test Chiamata
-
-            // Invio la richiesta API
+            
             var response = await SendApiRequest(apiUrl);
 
             if (response != null)
             {
-                token = response;
-                MessageBox.Show($"Token: {token}");
-                SessionData.Token = token;
+                
+                SessionData.Token = response;
+                MessageBox.Show($"Token: {SessionData.Token}");
+
+                
                 Close();
             }
             else
             {
-                MessageBox.Show("Errore nella chiamata API.");
+                MessageBox.Show("Errore nella chiamata API.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        
         private async Task<string> SendApiRequest(string apiUrl)
         {
             using (HttpClient client = new HttpClient())
             {
                 try
                 {
-                    // Invia la richiesta GET
+                    
                     HttpResponseMessage response = await client.GetAsync(apiUrl);
 
+                    
                     if (response.IsSuccessStatusCode)
                     {
-                        // Restituisci il contenuto della risposta come stringa
                         return await response.Content.ReadAsStringAsync();
                     }
                     else
                     {
-                        // Se la risposta non è valida, restituisci null
+                        
                         return null;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Errore durante la chiamata API: {ex.Message}");
+                    
+                    MessageBox.Show($"Errore durante la chiamata API: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            // Puoi aggiungere logica qui se necessario
-        }
+        
+        private void label3_Click(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            // Puoi aggiungere logica qui se necessario
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            // Puoi aggiungere logica qui se necessario
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
+        
+        private void Login_Load(object sender, EventArgs e) { }
     }
 }
