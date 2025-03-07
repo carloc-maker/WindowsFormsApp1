@@ -12,7 +12,6 @@ namespace WindowsFormsApp1
         public string Ip { get; private set; }
         public string Username { get; private set; }
         public string Password { get; private set; }
-
         
         public static class SessionData
         {
@@ -70,8 +69,10 @@ namespace WindowsFormsApp1
                 
                 SessionData.Token = response;
                 MessageBox.Show($"Token: {SessionData.Token}");
-
+                SessionData.IpLogin = Ip; // Aggiorna l'IP prima di chiudere la finestra
                 
+                DialogResult = DialogResult.OK; // Chiude la finestra restituendo OK
+
                 Close();
             }
             else

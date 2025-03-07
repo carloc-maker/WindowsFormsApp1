@@ -14,11 +14,12 @@ namespace WindowsFormsApp1
         private readonly HttpClient httpClient = new HttpClient();
         private string Token => SessionData.Token;
         private string Ip => SessionData.IpLogin;
-
+   
 
         public Main()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,11 +27,17 @@ namespace WindowsFormsApp1
             
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            
+ 
             Login loginWindow = new Login();
-            loginWindow.Show();
+            if (loginWindow.ShowDialog() == DialogResult.OK)
+            {
+                // Dopo che il login è stato completato, aggiorniamo lo StatusStrip
+                UpdateStatusStrip(SessionData.IpLogin, SessionData.Token);
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -222,6 +229,63 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show($"Errore durante la richiesta: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private async void button7_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Token))
+            {
+                MessageBox.Show("Il token non è valido.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "Choose where save the support package file",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                Filter = "Tattile Support Package File (*.tatconfig)|*.tatconfig",
+                DefaultExt = "tatconfig",
+                FileName = "support_package.tatconfig"
+            };
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string filePath = saveFileDialog.FileName;
+
+            string apiUrl = $"http://{Ip}/api/v1/system/support_package";
+
+            try
+            {
+                httpClient.DefaultRequestHeaders.Clear();
+                httpClient.DefaultRequestHeaders.Add("x-user-token", Token);
+
+                HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    byte[] fileBytes = await response.Content.ReadAsByteArrayAsync();
+                    File.WriteAllBytes(filePath, fileBytes);
+
+                    MessageBox.Show($"File salvato con successo:\n{filePath}", "Successo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Errore API: {errorMessage}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errore durante la richiesta: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void UpdateStatusStrip(string newValueIp, string newValueToken)
+        {
+            toolStripStatusLabel1.Text = "IP: " + newValueIp + "\nToken: " + newValueToken;
 
         }
     }
