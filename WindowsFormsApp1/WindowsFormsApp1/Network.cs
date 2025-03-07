@@ -18,9 +18,8 @@ namespace WindowsFormsApp1
         public string Post { get; private set; }
         public string TriggerID { get; private set; }
         public string LaneID { get; private set; }
-
-        string token = Login.SessionData.Token;
-        string Ip = Login.SessionData.Ip;
+        private string Token => Login.SessionData.Token;
+        private string Ip => Login.SessionData.IpLogin;
 
         public Network()
         {
@@ -38,14 +37,12 @@ namespace WindowsFormsApp1
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            
-            if (string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(Token))
             {
                 MessageBox.Show("Il token non è valido.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            
             if (!int.TryParse(N_Trigger, out int nTrigger) ||
                 !int.TryParse(Frequency, out int frequency) ||
                 !int.TryParse(Shift, out int shift) ||
@@ -58,7 +55,6 @@ namespace WindowsFormsApp1
 
             string apiUrl = $"http://{Ip}/api/v1/application/triggers/immediate/{TriggerID}";
 
-            
             var payload = new
             {
                 data = Data,
@@ -68,47 +64,46 @@ namespace WindowsFormsApp1
                 post_ms = post
             };
 
-            
-            string jsonPayload = JsonConvert.SerializeObject(payload);
-            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-
-            // Aggiungi il token all'header della richiesta
-            content.Headers.Add("x-user-token", token);
+            string jsonPayload = JsonConvert.SerializeObject(payload); 
 
             try
             {
                 int counter = 0;
+                int successCount = 0; 
 
-                
                 while (counter < nTrigger)
                 {
-                    
-                    HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
+                    httpClient.DefaultRequestHeaders.Clear();
+                    httpClient.DefaultRequestHeaders.Add("x-user-token", Token);
 
-                    
-                    string responseString = await response.Content.ReadAsStringAsync();
+                    using (var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json"))
+                    {
+                        HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
+                        string responseString = await response.Content.ReadAsStringAsync();
 
-                    
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show($"Risposta: {responseString}", "Risposta API", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Errore nella risposta API: {responseString}", "Errore API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            successCount++; 
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Errore nella risposta API: {responseString}", "Errore API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     counter++;
-
-                    
                     await Task.Delay(frequency * 1000);
                 }
+
+                
+                MessageBox.Show($"Inviati con successo {successCount} trigger sulla lane {LaneID}.", "Operazione completata", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                
                 MessageBox.Show($"Errore: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }

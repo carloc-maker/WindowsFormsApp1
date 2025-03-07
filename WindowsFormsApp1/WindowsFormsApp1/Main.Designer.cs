@@ -39,19 +39,20 @@
             // 
             // Login
             // 
+            this.Login.BackColor = System.Drawing.Color.White;
             this.Login.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login.Location = new System.Drawing.Point(102, 41);
+            this.Login.Location = new System.Drawing.Point(81, 56);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(280, 80);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
-            this.Login.UseVisualStyleBackColor = true;
+            this.Login.UseVisualStyleBackColor = false;
             this.Login.Click += new System.EventHandler(this.button1_Click);
             // 
             // Network_Trigger
             // 
             this.Network_Trigger.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Network_Trigger.Location = new System.Drawing.Point(102, 127);
+            this.Network_Trigger.Location = new System.Drawing.Point(81, 142);
             this.Network_Trigger.Name = "Network_Trigger";
             this.Network_Trigger.Size = new System.Drawing.Size(280, 80);
             this.Network_Trigger.TabIndex = 1;
@@ -62,7 +63,7 @@
             // Firmware_Update
             // 
             this.Firmware_Update.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Firmware_Update.Location = new System.Drawing.Point(102, 213);
+            this.Firmware_Update.Location = new System.Drawing.Point(81, 228);
             this.Firmware_Update.Name = "Firmware_Update";
             this.Firmware_Update.Size = new System.Drawing.Size(280, 80);
             this.Firmware_Update.TabIndex = 2;
@@ -73,7 +74,7 @@
             // Device_Reboot
             // 
             this.Device_Reboot.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Device_Reboot.Location = new System.Drawing.Point(102, 299);
+            this.Device_Reboot.Location = new System.Drawing.Point(81, 314);
             this.Device_Reboot.Name = "Device_Reboot";
             this.Device_Reboot.Size = new System.Drawing.Size(280, 80);
             this.Device_Reboot.TabIndex = 3;
@@ -84,7 +85,7 @@
             // Device_Information
             // 
             this.Device_Information.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Device_Information.Location = new System.Drawing.Point(102, 385);
+            this.Device_Information.Location = new System.Drawing.Point(81, 400);
             this.Device_Information.Name = "Device_Information";
             this.Device_Information.Size = new System.Drawing.Size(280, 80);
             this.Device_Information.TabIndex = 4;
@@ -95,7 +96,7 @@
             // Camera_Status
             // 
             this.Camera_Status.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Camera_Status.Location = new System.Drawing.Point(102, 471);
+            this.Camera_Status.Location = new System.Drawing.Point(81, 486);
             this.Camera_Status.Name = "Camera_Status";
             this.Camera_Status.Size = new System.Drawing.Size(280, 80);
             this.Camera_Status.TabIndex = 5;
@@ -107,7 +108,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 639);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClientSize = new System.Drawing.Size(463, 623);
             this.Controls.Add(this.Camera_Status);
             this.Controls.Add(this.Device_Information);
             this.Controls.Add(this.Device_Reboot);
@@ -118,7 +120,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.Text = "Stark Client";
+            this.Text = "Stark FAE Client";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

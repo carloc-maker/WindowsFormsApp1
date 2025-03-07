@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
@@ -11,8 +12,9 @@ namespace WindowsFormsApp1
     public partial class Main : Form
     {
         private readonly HttpClient httpClient = new HttpClient();
-        string token = SessionData.Token;
-        string Ip = SessionData.Ip;
+        private string Token => SessionData.Token;
+        private string Ip => SessionData.IpLogin;
+
 
         public Main()
         {
@@ -38,9 +40,8 @@ namespace WindowsFormsApp1
             networkWindow.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
-            
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Upload GPG file",
@@ -56,16 +57,60 @@ namespace WindowsFormsApp1
             string filePath = openFileDialog.FileName;
             MessageBox.Show($"File selezionato:\n{filePath}", "File Selezionato");
 
-            // Inserire API per caricamento gpg
-            // await UploadFile(filePath);
+            if (string.IsNullOrEmpty(Token))
+            {
+                MessageBox.Show("Il token utente non è valido.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string apiUrl = $"http://{Ip}/api/v1/system/update";
+
+            try
+            {
+                using (var httpClient = new HttpClient())
+                using (var multipartContent = new MultipartFormDataContent())
+                using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                using (var fileContent = new StreamContent(fileStream))
+                {
+                    
+                    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+                    
+                    multipartContent.Add(fileContent, "file", Path.GetFileName(filePath));
+
+                    
+                    httpClient.DefaultRequestHeaders.Clear();
+                    httpClient.DefaultRequestHeaders.Add("x-user-token", Token);
+
+                    
+                    HttpResponseMessage response = await httpClient.PostAsync(apiUrl, multipartContent);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseString = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Risposta: {responseString}", "Risposta API", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        string errorMessage = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Errore: {errorMessage}", "Errore API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errore durante la richiesta: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private async void button4_Click(object sender, EventArgs e)
         {
-            
-            if (string.IsNullOrEmpty(token))
+
+            if (string.IsNullOrEmpty(Token))
             {
                 MessageBox.Show("Il token utente non è valido.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    
                 return;
             }
 
@@ -79,12 +124,12 @@ namespace WindowsFormsApp1
             
             var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
-            
-            content.Headers.Add("x-user-token", token);
 
             try
             {
-                
+                httpClient.DefaultRequestHeaders.Clear();
+                httpClient.DefaultRequestHeaders.Add("x-user-token", Token);
+
                 HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
 
                 
@@ -109,19 +154,19 @@ namespace WindowsFormsApp1
 
         private async void button5_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(Token))
             {
                 MessageBox.Show("Il token utente non è valido.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            string apiUrl = $"http://{Ip}/api/v1/system/device-information";
+            string apiUrl = $"http://{Ip}/api/v1/system/device-description";
 
             try
             {
                 
                 httpClient.DefaultRequestHeaders.Clear();
-                httpClient.DefaultRequestHeaders.Add("x-user-token", token);
+                httpClient.DefaultRequestHeaders.Add("x-user-token", Token);
 
                 
                 HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
@@ -145,7 +190,7 @@ namespace WindowsFormsApp1
 
         private async void button6_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(Token))
             {
                 MessageBox.Show("Il token utente non è valido.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -157,7 +202,7 @@ namespace WindowsFormsApp1
             {
 
                 httpClient.DefaultRequestHeaders.Clear();
-                httpClient.DefaultRequestHeaders.Add("x-user-token", token);
+                httpClient.DefaultRequestHeaders.Add("x-user-token", Token);
 
 
                 HttpResponseMessage response = await httpClient.GetAsync(apiUrl);

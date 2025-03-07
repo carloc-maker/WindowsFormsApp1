@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
         public static class SessionData
         {
             public static string Token { get; set; }
-            public static string Ip { get; set; }
+            public static string IpLogin { get; set; }
         }
 
         public Login()
@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             Ip = textBox3.Text.Trim();
-            SessionData.Ip = Ip;
+            SessionData.IpLogin = Ip;
         }
 
         
