@@ -34,8 +34,7 @@ namespace WindowsFormsApp1
             Login loginWindow = new Login();
             if (loginWindow.ShowDialog() == DialogResult.OK)
             {
-                // Dopo che il login è stato completato, aggiorniamo lo StatusStrip
-                UpdateStatusStrip(SessionData.IpLogin, SessionData.Token);
+                UpdateStatusLabel(SessionData.IpLogin, SessionData.Token);
             }
             
         }
@@ -62,7 +61,15 @@ namespace WindowsFormsApp1
             }
 
             string filePath = openFileDialog.FileName;
-            MessageBox.Show($"File selezionato:\n{filePath}", "File Selezionato");
+            DialogResult result = MessageBox.Show($"Sei sicuro di voler caricare \"{Path.GetFileName(filePath)}\"?",
+                                                  "Conferma Upload",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+            {
+                return; // Se l'utente clicca "No", esce dalla funzione.
+            }
 
             if (string.IsNullOrEmpty(Token))
             {
@@ -79,17 +86,12 @@ namespace WindowsFormsApp1
                 using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                 using (var fileContent = new StreamContent(fileStream))
                 {
-                    
                     fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
-
-                    
                     multipartContent.Add(fileContent, "file", Path.GetFileName(filePath));
 
-                    
                     httpClient.DefaultRequestHeaders.Clear();
                     httpClient.DefaultRequestHeaders.Add("x-user-token", Token);
 
-                    
                     HttpResponseMessage response = await httpClient.PostAsync(apiUrl, multipartContent);
 
                     if (response.IsSuccessStatusCode)
@@ -283,9 +285,24 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Errore durante la richiesta: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void UpdateStatusStrip(string newValueIp, string newValueToken)
+
+        private void UpdateStatusLabel(string newValueIp, string newValueToken)
         {
-            toolStripStatusLabel1.Text = "IP: " + newValueIp + "\nToken: " + newValueToken;
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() =>
+                {
+                    labelStatus.Text = $"IP: {newValueIp} \nToken: {newValueToken}";
+                }));
+            }
+            else
+            {
+                labelStatus.Text = $"IP: {newValueIp} \nToken: {newValueToken}";
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
